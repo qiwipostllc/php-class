@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>QPWidget: QPWidget PHP class</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="logo-ru.png"/></td>
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">QPWidget
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.1.2 -->
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title"><a class="el" href="class_q_p_widget.html">QPWidget</a> PHP class </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>(C) 2012, Zoya Schegolihina &lt;zschegolihina (at) qiwipost (dot) ru&gt;.</p>
+<h1>Поддержка</h1>
+<p>По всем вопросам, связанным с поддежкой данного продукта Вы можете обратиться к его Автору или на адрес: <a href="#" onclick="location.href='mai'+'lto:'+'sup'+'po'+'rt@'+'qi'+'wip'+'os'+'t.r'+'u'; return false;">suppo<span style="display: none;">.nosp@m.</span>rt@q<span style="display: none;">.nosp@m.</span>iwipo<span style="display: none;">.nosp@m.</span>st.r<span style="display: none;">.nosp@m.</span>u</a>.</p>
+<h1>Подключение</h1>
+<p>Чтобы использовать класс, его необходимо подключить. Для этого необходимо скопировать файлы qpwidget.js и qpwidget.php на Ваш веб-сервер, предварительно сохранив их в рабочей кодировке Вашего сайта. В дальнейшем подключение класса сводится к использованию кода путем включения через оператор include();</p>
+<h2>Пример.</h2>
+<p>include( 'путь/к/файлу/qpwidget.php' ); $qp = new <a class="el" href="class_q_p_widget.html">QPWidget</a>( '9991234567', '123456', '100 руб.', 0, '', 'Выбран терминал оплаты name', 1, 'utf-8' );</p>
+<ul>
+<li><b>9991234567</b> - номер телефона для авторизации (10 цифр).</li>
+<li><b>123456</b> - пароль для авторизации</li>
+<li><b>100 руб.</b> - стоимость доставки</li>
+<li><b>0</b> - реальный доступ (не тестовый)</li>
+<li>**''** - относительный путь к папке с файлом qpwidget.js</li>
+<li>**Выбран терминал оплаты name** - Текст сообщения, которое вставляется автоматически в поле с комментарием после выбора терминала QiwiPost. Например: "Выбран терминал оплаты name", где name - будет заменено автоматически на ID терминала. Внимание, если в шаблоне сообщения не будет указан параметр name, то автоматически будет использован заданный по умолчанию шаблон.</li>
+<li><b>1</b> - 1 - необходимо подключить jquery, 0 - не нужно подгружать jquery, т.к. он уже загружен на странице. Внимание! jquery необходим в любом случае, т.к. на нем работает подгружаемый js-скрипт!</li>
+<li><b>utf-8</b> - Кодировка, в которой будут загружены данные о терминалах через api QiwiPost</li>
+</ul>
+<h1>Список терминалов в виде выпадающего списка</h1>
+<p>Метод getDrop возвращает html-код выпадающего списка.</p>
+<h2>Пример.</h2>
+<p>echo $qp-&gt;getDrop( 'my_select', 'machine', 'comment' );</p>
+<ul>
+<li><b>my_select</b> - css-класс html-объекта (атрибут class)</li>
+<li><b>machine</b> - название html-объекта (атрибут name)</li>
+<li><b>comment</b> - ID html-поля на форме с комментарием (в это поле будет автоматически добавлен ИД терминала)</li>
+</ul>
+<h1>Список терминалов в виде выпадающего списка с картой</h1>
+<p>Метод getDropWithMap возвращает html-код выпадающего списка + ссылку на окно с картой для выбора терминала. Ссылка может быть в виде кнопки (тип button), картинки (тип image) или текстовой ссылки (тип link, по умолчанию).</p>
+<h2>Пример.</h2>
+<p>echo $qp-&gt;getDropWithMap( 'my_select_map', 'machine_map', 'comment', 'button', 'Показать карту' );</p>
+<ul>
+<li><b>my_select_map</b> - css-класс html-объекта (атрибут class)</li>
+<li><b>machine_map</b> - название html-объекта (атрибут name)</li>
+<li><b>comment</b> - ID html-поля на форме с комментарием (в это поле будет автоматически добавлен ИД терминала)</li>
+<li><b>button</b> - тип ссылки на карту (button,image,link).</li>
+<li>**Показать карту** - текст ссылки на карту</li>
+</ul>
+<h1>Список терминалов в виде раскрытого списка (таблица)</h1>
+<p>Метод getTable возвращает html-код раскрытого списка.</p>
+<h2>Пример.</h2>
+<p>echo $qp-&gt;getTable( 'my_list', 'machine_list', 'comment' );</p>
+<ul>
+<li><b>my_list</b> - css-класс html-объекта (атрибут class)</li>
+<li><b>machine_list</b> - название html-объекта (атрибут name)</li>
+<li><b>comment</b> - ID html-поля на форме с комментарием (в это поле будет автоматически добавлен ИД терминала)</li>
+</ul>
+<h1>Ссылка на карту для выбора терминала в виде кнопки, изображения или ссылки</h1>
+<p>Метод getMapButton возвращает html-код ссылки на окно с картой для выбора терминала. Ссылка может быть в виде кнопки (тип button), картинки (тип image) или текстовой ссылки (тип link, по умолчанию).</p>
+<h2>Пример.</h2>
+<p>echo $qp-&gt;getMapButton( 'comment', 'image', 'map.png' );</p>
+<ul>
+<li><b>comment</b> - ID html-поля на форме с комментарием (в это поле будет автоматически добавлен ИД терминала)</li>
+<li><b>image</b> - тип ссылки на карту</li>
+<li><b>map.png</b> - адрес расположения картинки (button,image,link).</li>
+</ul>
+<h1>Активировать/дезактивировать элементы формы для выбора терминала</h1>
+<p>JS-метод qpChangeStatus( action ) устанавливает (action=0) или удаляет (action=1) атрибут disabled у всех html-объектов, предназначенных для выбора терминала QiwiPost: выпадающий список, radiobutton, кнопка/изображение/ссылка. См. пример использования в Примере №9.</p>
+<h2>Пример.</h2>
+<p>&lt;script&gt;qpChangeStatus( 0 ); // делает элементы формы QiwiPost неактивными&lt;/script&gt;</p>
+<h1>Удалить информацию о выбранном терминале из поля с комментарием</h1>
+<p>JS-метод qpDelQiwiPostInfo() удаляет оригинальный текст сообщения из поля с комментарием. См. пример использования в Примере №9.</p>
+<h2>Пример.</h2>
+<p>&lt;script&gt;qpDelQiwiPostInfo();&lt;/script&gt; </p>
+</div></div><!-- contents -->
+</body>
+</html>
