@@ -1,7 +1,7 @@
 $(document).ready( function(){	/**
 	* Назначаем обработчик события, которое происходит при клике по объекту с классом "qp_map", т.е. по любой кнопке или ссылке для вызова карты
 	*/
-	$( '.qp_map' ).bind( 'click', function(){		window.open( 'http://qiwipost.ru/widget/geo.php?remote_host=' + escape(document.URL) + '&dropdown_name=machine&dropdown_class=class&field_to_update=address&user_function=','EasyPack','height=640,width=1000,toolbar=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no' );	});
+	$( '.qp_map' ).bind( 'click', function(){		QiwiPostWidget.open();	});
 
 	/**
 	* Назначаем обработчик события, которое происходит при клике по radiobutton (в раскрытом списке терминалов)
